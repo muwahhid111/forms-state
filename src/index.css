@@ -1,13 +1,11 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+.addText {
+  color: green;
 }
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+.input {
+  color: red;
+}
+.inputText {
+    -webkit-box-shadow: 4px 8px 5px 1px rgba(255, 0, 0, 0.23);
+    -moz-box-shadow: 4px 8px 5px 1px rgba(255, 0, 0, 0.23);
+    box-shadow: 4px 8px 5px 1px rgba(255, 0, 0, 0.23);  
 }
