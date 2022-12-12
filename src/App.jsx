@@ -1,37 +1,59 @@
 import React, { useState } from "react";
 const App = () => {
-  const [value, setValue] = useState("");
   const [send, setSend] = useState(false);
-  const [error, setError] = useState(false);
+  const [checked, setChecked] = useState(false);
+  const [details, setDetails] = useState(false)
+  const handleClick = () => {
+    setSend(true);
+    setChecked(true)
+  };
+  const handleOnClick = () => {
+    setSend(false);
+    setChecked(false)
+  };
+  const handleDetails = () => {
+    setDetails(true)
 
-  const handleValue = (e) => {
-    setValue(e.target.value);
-    setSend(false)
-    setError(false)
   };
-  const handleAddText = (e) => {
-    e.preventDefault();
-   console.log(value)
-    setValue("");
-    setSend(true)
-  };
-  const handleBlur = () => {
-    if(!value){
-        setError(true)
-        setSend(false)
-    }
+  const handleOnDetails = () => {
+    setDetails(false)
   }
   return (
-    <>
-      <form onSubmit={handleAddText}>
-        <input className={error && 'inputText'} value={value} onChange={handleValue} onBlur={handleBlur}/>
-        <button type="submit" disabled={!value}>
-          add
-        </button>
-      </form>
-      {send && <div className={send && 'addText'}>Сообщение отправлено</div>}
-      {error && <div className="input">Поле ввода не должно быть пустым!</div>}
-    </>
+    <div className="container">
+      <div className="content">
+        <img
+          className="img"
+          src="https://vsekrossovki.in.ua/images/product/l/553049704.jpg"
+          alt=""
+        />
+        <span className="name">Nike Sneaker</span>
+        <div>
+          {" "}
+          <button onClick={handleDetails} className="details">Детали</button>
+        </div>
+        <div>
+          <span className="price">120$</span>
+        </div>
+        <hr className="hr" />
+        <span>Lorem ipsum, dolor sit amet consectetur adipisicing elit.</span>
+        <div className="basketMom">
+          <button disabled={checked} onClick={handleClick} className={send ? "basket2" : "basket"}>
+            {send ? "Уже в корзине" : "Добавить в корзину"}
+          </button>
+          {send && (
+            <button className="deleteBut" onClick={handleOnClick}>
+              Удалить из карзины
+            </button>
+          )}
+        </div>
+        {details && <div className="block">
+       <div className="buttonX"> <button onClick={handleOnDetails} className="x">x</button> </div>
+        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Reiciendis deleniti illo illum natus dignissimos .
+       
+      </div>}
+      </div>
+
+    </div>
   );
 };
 export default App;
